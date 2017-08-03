@@ -4,7 +4,7 @@ var router = express.Router();
 var mongodb = require('mongodb');
 var config = require('../config');
 //var mLab = 'mongodb://' + config.db.host + '/' + config.db.name;
-var mongoDB = process.env.MONGODB_URI || "mongodb://<dbuser>:<dbpassword>@ds129723.mlab.com:29723/url-short"
+var mongoDB = process.env.MONGODB_URI || "mongodb://fmod31:Maur1002@ds129723.mlab.com:29723/url-short"
 var MongoClient = mongodb.MongoClient
 
 var shortid = require('shortid');
