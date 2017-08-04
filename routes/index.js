@@ -3,8 +3,7 @@ var router = express.Router();
 
 var mongodb = require('mongodb');
 var config = require('../config');
-//var mLab = 'mongodb://' + config.db.host + '/' + config.db.name;
-var mongoDB = process.env.MONGODB_URI || "mongodb://fmod31:Maur1002@ds129723.mlab.com:29723/url-short"
+var mLab = 'mongodb://' + config.db.host + '/' + config.db.name;
 var MongoClient = mongodb.MongoClient
 
 var shortid = require('shortid');
@@ -18,7 +17,7 @@ router.get('/', function(req, res, next) {
 });
 
 router.get('/new/:url(*)', function (req, res, next) {
-  MongoClient.connect(mongoDB, function (err, db) {
+  MongoClient.connect(mLab, function (err, db) {
     if (err) {
       console.log("Unable to connect to server", err);
     } else {
@@ -58,7 +57,7 @@ router.get('/new/:url(*)', function (req, res, next) {
 
 router.get('/:short', function (req, res, next) {
 
-  MongoClient.connect(mongoDB, function (err, db) {
+  MongoClient.connect(mLab, function (err, db) {
     if (err) {
       console.log("Unable to connect to server", err);
     } else {
